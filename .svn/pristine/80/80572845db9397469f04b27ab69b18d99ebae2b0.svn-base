@@ -1,0 +1,15 @@
+SELECT  #foreach($var in ${columnName1})
+$var #if($velocityCount <= $columnLength - 1), #else #end #end
+FROM ${tableName}
+WHERE #foreach($i in[0..$columnLength-1])
+#if($columnValues[$i] != "")
+#if($i == 0) $columnName[$0] = '$columnValues[$0]'
+#elseif($i>=1) AND $columnName[$i] = '$columnValues[$i]' 
+#else
+#end
+#end
+#end
+
+
+
+

@@ -1,0 +1,73 @@
+ #*
+ * 1. 패키지명 : template
+ * 2. 타입명 : xml.vm
+ * 3. 작성일 : 2015. 8. 18. 오후 11:31:01
+ * 4. 작성자 : "류혜수"
+ * 5. 설명 :velocity-xml 탬플릿
+ *#
+  #*
+ * 1. 패키지명 : template
+ * 2. 타입명 : xml.vm
+ * 3. 작성일 : 2015. 8. 20. 오후 05:14:01
+ * 4. 작성자 : "류혜수"
+ * 5. 설명 : 변수값 변경 및 쿼리 삭제
+ *#
+ <?xml version="1.0" encoding="UTF-8" ?>
+	<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+	<sqlMap namespace="${methodName}">
+	
+	<!-- INSERT -->
+    <insert id="insert${tableName2}">      
+   
+      INSERT INTO ${tableName}(
+            SEQ
+            #foreach($var in $vars),#$var#
+            #end     
+                                  
+      ) VALUES (
+           SEQ_TEST.NEXTVAL
+      			)      
+   </insert>   
+   
+   <!-- UPDATE -->
+   <update id="update${tableName2}">
+      UPDATE ${tableName}
+      SET    SEQ = SEQ
+      	#foreach($var in $vars),$var = #$var#
+      	#end 
+   </update>
+   
+   <!-- DELETE -->
+   <delete id="delete${tableName2}">
+      DELETE  ${tableName}
+      WHERE   #foreach($var in $vars),$var = #$var#
+      #end
+   </delete>   
+
+   
+   
+   <!-- 공통select 구문정의 -->
+   <sql id = "commonSelect">
+      SELECT  SEQ AS seq
+            #foreach($var in $vars),$var AS $var
+            #end
+      FROM    ${tableName} A
+      WHERE   1=1
+   </sql>
+   
+   
+   <!-- 목록조회 -->
+   <select id="select${tableName2}List" resultClass = "ibatis.${methodName}.${tableName2}Dto"> 
+      <include refid = "${tableName2}.commonSelect"/>   
+      
+   </select>
+   
+   <!-- 한건조회(단일row) -->
+   <select id="select${tableName2}" resultClass = "ibatis.${methodName}.${tableName2}Dto"> 
+      <include refid = "${methodName}.commonSelect"/> 
+   </select>   
+   
+</sqlMap>

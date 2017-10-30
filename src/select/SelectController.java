@@ -1,0 +1,195 @@
+package select;
+
+import java.io.StringWriter;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import org.apache.log4j.Logger;
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
+
+import util.ComUtil;
+import login.LoginDto;
+import main.MainController;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class SelectController implements Initializable {
+   public Stage currentStage;
+   public MainController mainController;   
+   String colSelect = null;
+   String[] colWhere = null;
+   String[] colValues = null;   
+   Label[] lb = null;
+   TextField[] tf = null;   
+   int columnLength;   
+   
+   // log4j 설정
+   private static final Logger LOG = Logger.getLogger(LoginDto.class);
+  
+   @FXML private Button btnCancel;
+   @FXML private Button btnSelect;
+   @FXML private VBox vboxcol;
+   @FXML private VBox vboxwhere;
+   @FXML private VBox vboxsel;
+   
+   /**
+ * 1. 메소드명 : exitSelect
+ * 2. 작성일 : 2015. 8. 22. 오후 2:45:56
+ * 3. 작성자 : 주용민
+ * 4. 설명 :   select팝업 창에서 esc키를 누르면 취소버튼 누른 것과같은 기능
+ * @param event
+ */
+@FXML
+   void exitSelect(KeyEvent event) {
+	   final KeyCombination key = new KeyCodeCombination(KeyCode.ESCAPE);
+		if(key.match(event)) {
+			cancel(null);
+		}
+   }
+   
+   @FXML
+   void cancel(ActionEvent event) {
+      this.currentStage.close();
+   }
+
+   /**
+    * 
+    * 1. 메소드명 : select
+    * 2. 작성일 : 2015. 8. 20. 오후 3:12:30 
+    * 3. 작성자 : pc01 유홍상 
+    * 4. 설명 : select 조회시 쿼리문 띄움     
+    * @param event
+    */
+   @FXML
+   void select(ActionEvent event) {
+		VelocityEngine ve = new VelocityEngine();
+		ve.setProperty("resource.loader", "classpath");
+		ve.setProperty("classpath.resource.loader.class",
+				ClasspathResourceLoader.class.getName());
+		ve.setProperty("input.encoding", "UTF-8");
+		ve.init();
+
+		// 이제 템플릿 파일을 읽어보자.
+		Template t = ve.getTemplate("/template/select.vm");
+		
+		
+		
+		if(!colSelect.equals("")){		//마지막 조회항목 전 컴마 없애기
+		colSelect = colSelect.substring(0, colSelect.lastIndexOf(", "));	
+		}
+		
+		List<String> whereTemplate = new ArrayList<String>();	//vm의 조건절에 던져줄 템플릿 리스트
+		for (int i = 0; i < columnLength; i++) {		
+			colValues[i] = tf[i].getText().trim();
+			if (!colValues[i].isEmpty()) { 						// 조건절 텍스트 필드의 값 NULL체크				
+				whereTemplate.add(whereTemplate.size() > 0 ?
+				// whereTemplate의 인덱스가 0보다 클때 AND 컬럼명 텍스트필드값 0일때 WHERE 추가 후 리스트추가				
+						"AND " + colWhere[i] + " = '" + colValues[i] + "'"
+						: "WHERE " + colWhere[i] + " = '" + colValues[i] + "'");
+				LOG.debug("SelectController Table textFieldWhere : " + tf[i]);
+			}
+		}
+
+		if (colSelect.equals("")) {					//조회항목 체크박스 비어있으면 팝업
+			ComUtil.alert("조회할 항목을 입력하세요.");
+			return;
+		}
+
+		// 템플릿에 던져줄 데이터 만들기
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("tableName", mainController.getTblTableInfo()); // 테이블명 입력
+		map.put("selectvm", colSelect); // SET 이하 데이터 던지기
+		map.put("wherevm", whereTemplate); // WHERE 이하 데이터 던지기
+
+		VelocityContext context = new VelocityContext(map);
+		StringWriter writer = new StringWriter();
+		t.merge(context, writer); // 이제 템플릿과 데이터를 합치자
+		mainController.setTxtPreView(writer.toString()); // 쿼리문을 소스창에 뿌린다.
+		System.out.println(writer.toString());
+		
+		this.currentStage.close();
+	}
+
+   //---------------------------------------------------------------------------------------------------------------------------------------
+   
+   
+   public void base(String tableName) throws Exception {
+      Connection conn = config.DBConnect.connect(); // db연동          
+      String sql = "select * from " + tableName; 	// 선택한 db table 설정
+      ResultSet rs = conn.createStatement().executeQuery(sql);
+      ResultSetMetaData rsmd = rs.getMetaData();
+      columnLength = rsmd.getColumnCount();
+
+      lb = new Label[columnLength];
+      tf = new TextField[columnLength];
+
+      colSelect = new String();     
+      colWhere = new String[columnLength];       		// 컬럼이름의 크기를 컬럼의 개수로 지정
+      colValues = new String[columnLength]; 
+      CheckBox[] cbs = new CheckBox[columnLength];
+      for (int j = 0; j < columnLength; j++) {    		//컬럼이름을 배열에 저장함
+    	  colWhere[j] = rsmd.getColumnName(j + 1);
+      }
+          
+
+      for (int i = 0; i < columnLength; i++) {
+         String name = rsmd.getColumnName(i + 1);
+         lb[i] = new Label(name);						// 컬럼명 라벨 생성
+         tf[i] = new TextField(); 						// 조건절 텍스트필드 생성
+         tf[i].setMinWidth(200);
+         tf[i].setId(name);   
+         
+         CheckBox cb = cbs[i] = new CheckBox();			//체크박스 선택시에 colSelect에 던져줄값
+         cb.setId(name);
+         cbs[i].selectedProperty().addListener(new ChangeListener<Boolean>() {        	 
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				if(cb.isSelected()){					
+					colSelect += cb.getId() + ", ";
+				}else{
+					colSelect = colSelect.replace(cb.getId()+ ", ", "");
+				}				
+			}
+		});
+         
+         vboxcol.getChildren().add(lb[i]);
+         vboxwhere.getChildren().add(tf[i]);
+         vboxsel.getChildren().add(cbs[i]);    
+       }
+   }
+
+   @Override
+   public void initialize(URL arg0, ResourceBundle arg1) {
+
+   }
+}

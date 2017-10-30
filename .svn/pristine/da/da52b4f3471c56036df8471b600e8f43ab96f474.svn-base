@@ -1,0 +1,8 @@
+INSERT INTO ${tableName} 
+(
+#foreach($var in ${columName})
+$var #if($velocityCount <= $columLength - 1),#else #end 
+#end) VALUES (
+#foreach($var in ${columValues})
+$var #if($velocityCount <= $columLength - 1),#else #end 
+#end);

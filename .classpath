@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/수업자료/external-lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/ibatis/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/ibatis/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/ibatis/commons-pool-1.5.7.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/ibatis/ibatis-sqlmap-2.3.4.726.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/velocity-1.7.jar"/>
+	<classpathentry kind="lib" path="/수업자료/external-lib/velocity-tools-2.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

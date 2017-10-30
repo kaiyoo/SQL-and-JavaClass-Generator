@@ -1,0 +1,20 @@
+2015.08.22
+오후 2:57
+--에러 상황:
+
+1. delete run 문제 
+
+2. 숫자와 문자 구분시 ''표 제거 
+ex) DELETE FROM MEMBER
+WHERE MEM_ID = 'qw'
+AND MEM_PASS = 'qwe'
+AND MEM_NAME = 'qweqweqw'
+AND MEM_REGNO1 = '1'
+AND MEM_REGNO2 = '23'
+AND MEM_BIR = '4'
+;
+3. 기본적 틀에 혜수가 만든 로고만 박으면 정말 이쁠것 같아요.
+
+4. 인설트와 딜리트 기본 소스가 같아서 하나로 묶고 불러오는 형식으로도 가능할꺼 같습니다.
+
+5. TableName 창 오른쪽 화살표 같은걸 누르면 테이블명이 움직입니다.

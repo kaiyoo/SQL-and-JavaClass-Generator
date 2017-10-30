@@ -1,0 +1,9 @@
+SELECT
+$selectvm
+FROM $tableName
+#foreach($i in ${wherevm})
+$i
+#end;
+
+
+

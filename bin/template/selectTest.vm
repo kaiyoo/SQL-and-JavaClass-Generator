@@ -1,0 +1,8 @@
+SELECT
+#foreach($select in ${selects})
+$select
+#end
+FROM $tableName
+#foreach($var in ${vars})
+$var
+#end;

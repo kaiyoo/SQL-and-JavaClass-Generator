@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+   <children>
+      <HBox alignment="CENTER" layoutX="-1.0" prefHeight="312.0" prefWidth="700.0">
+         <children>
+            <VBox prefHeight="287.0" prefWidth="330.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </HBox.margin>
+               <children>
+                  <TableView fx:id="tblAccountInfo" prefHeight="254.0" prefWidth="283.0">
+                    <columns>
+                      <TableColumn fx:id="colUserId" prefWidth="101.0" text="User ID" />
+                        <TableColumn fx:id="colHost" prefWidth="176.0" text="Host" />
+                    </columns>
+                  </TableView>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="283.0">
+                     <children>
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="53.0" text="삭제" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="321.0" prefWidth="435.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </HBox.margin>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="330.0" spacing="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="130.0" text="User ID" />
+                        <TextField fx:id="txtUserId" prefHeight="35.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="330.0" spacing="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="130.0" text="Password" />
+                        <PasswordField fx:id="txtPassword" prefHeight="35.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="330.0" spacing="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="130.0" text="Host" />
+                        <TextField fx:id="txtHost" prefHeight="35.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="330.0" spacing="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="130.0" text="Port" />
+                        <TextField fx:id="txtPort" prefHeight="35.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="330.0" spacing="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="130.0" text="Service Name" />
+                        <TextField fx:id="txtServiceName" prefHeight="35.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="391.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="53.0" text="로그인" />
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="53.0" text="저장" />
+                        <Button fx:id="btnReset" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="53.0" text="초기화" />
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="53.0" text="취소" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+</AnchorPane>

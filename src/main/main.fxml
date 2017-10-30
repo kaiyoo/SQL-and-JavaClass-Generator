@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="891.0" maxWidth="1153.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="891.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+   <children>
+      <VBox prefHeight="891.0" prefWidth="221.0">
+         <children>
+            <StackPane alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="221.0">
+               <children>
+                  <Label fx:id="lblInfo" alignment="CENTER" prefHeight="19.0" prefWidth="111.0">
+                     <StackPane.margin>
+                        <Insets right="100.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#openLoginPopup" prefHeight="25.0" prefWidth="89.0" text="login">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </Button>
+                  <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="89.0" text="logout" visible="false" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </StackPane>
+            <HBox alignment="CENTER" prefHeight="821.0" prefWidth="211.0">
+               <children>
+                  <TableView fx:id="tblTableInfo" prefHeight="834.0" prefWidth="211.0">
+                    <columns>
+                      <TableColumn fx:id="tableName" prefWidth="210.0" text="tableName" />
+                    </columns>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="227.0" prefHeight="891.0" prefWidth="927.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="927.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="85.0">
+                     <children>
+                        <Button fx:id="btnFile" mnemonicParsing="false" onAction="#file" prefHeight="25.0" prefWidth="55.0" text="file" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="833.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#insert" prefHeight="25.0" prefWidth="60.0" text="insert" />
+                        <Button fx:id="btnSelect" mnemonicParsing="false" onAction="#select" prefHeight="25.0" prefWidth="60.0" text="select" />
+                        <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="60.0" text="update" />
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="60.0" text="delete" />
+                        <Button fx:id="btnSelectTest" mnemonicParsing="false" onAction="#selectTest" prefHeight="25.0" prefWidth="60.0" text="test" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="413.0" prefWidth="926.0">
+               <children>
+                  <TextArea fx:id="txtPreView" onKeyPressed="#enterRun" prefHeight="413.0" prefWidth="911.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="968.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="137.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="btnClear" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="55.0" text="clear" />
+                        <Button fx:id="btnRun" mnemonicParsing="false" onAction="#run" prefHeight="25.0" prefWidth="55.0" text="run" />
+                     </children>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="791.0" spacing="20.0">
+                     <children>
+                        <Label fx:id="lblResult" prefHeight="25.0" prefWidth="763.0" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                     </children></HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="349.0" prefWidth="927.0">
+               <children>
+                  <TableView fx:id="tblDataGrid" prefHeight="364.0" prefWidth="911.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

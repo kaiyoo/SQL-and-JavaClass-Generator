@@ -1,0 +1,12 @@
+
+url=jdbc:oracle:thin:@localhost:1521:xe
+userId=pc23
+password=java
+
+url=jdbc:oracle:thin:@localhost:1521:xe
+userId=scott
+password=tiger
+
+url=jdbc:oracle:thin:@192.168.202.37:1521:xe
+userId=pc01
+password=java

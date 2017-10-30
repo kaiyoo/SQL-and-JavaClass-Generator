@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#exitSelect" prefHeight="547.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="selectTest.SelectTestController">
+   <children>
+      <HBox prefHeight="36.0" prefWidth="446.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="25.0" prefWidth="153.0" spacing="18.0">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <children>
+                  <Label text="컬럼명" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="207.0">
+               <children>
+                  <Label text="조회조건" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="47.0">
+               <children>
+                  <Label text="출력" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <ScrollPane prefHeight="483.0" prefWidth="446.0">
+         <content>
+            <HBox prefHeight="470.0" prefWidth="431.0">
+               <children>
+                  <VBox fx:id="vBoxLabel" prefHeight="422.0" prefWidth="159.0" spacing="18.0">
+                     <padding>
+                        <Insets top="12.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox fx:id="vBoxTextField" alignment="TOP_CENTER" prefHeight="579.0" prefWidth="216.0" spacing="10.0">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vBoxCheckBox" prefHeight="569.0" prefWidth="47.0" spacing="17.0">
+                     <padding>
+                        <Insets top="14.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </HBox>
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="446.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnGeneration" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="생성" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="70.0" text="취소" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

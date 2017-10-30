@@ -1,0 +1,6 @@
+DELETE #foreach($select in ${selects})$deletes
+#end
+FROM $tableName
+#foreach($var in ${vars})
+$var
+#end;

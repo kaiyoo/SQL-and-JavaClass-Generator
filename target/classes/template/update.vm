@@ -1,0 +1,7 @@
+UPDATE $tableName SET 
+#foreach($update in ${updates}) 
+$update
+#end	
+#foreach($terms in ${where}) 
+$terms
+#end;

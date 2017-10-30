@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+	<sqlMap namespace="${methodName}">
+
+
+	<!-- INSERT -->
+	<insert id="insert${bizName}">
+
+		INSERT INTO ${tableName}(
+	  #foreach($i in [0..$colCnt])
+	  #if($i != 0), #end$cols[$i]
+	  #end
+  ) VALUES (
+     #foreach($i in [0..$colCnt])
+     #if($i != 0), #end#$vars[$i]#
+     #end
+  )
+
+	</insert>
+
+
+	<!-- SELECT -->
+	<sql id = "commonSelect">
+	
+		SELECT
+	 #foreach($i in [0..$colCnt])
+     #if($i != 0), #end$cols[$i] AS #$vars[$i]# 
+     #end
+	FROM ${tableName}
+		WHERE 1=1
+		
+	</sql>
+   
+   
+	<!-- 목록조회 -->
+	<select id="select${bizName}List" resultClass = "ibatis.${methodName}.${bizName}Dto"> 
+    <include refid = "${methodName}.commonSelect"/>   
+	</select>
+
+	<!-- 한건조회(단일row) -->
+	<select id="select${bizName}" resultClass = "ibatis.${methodName}.${bizName}Dto"> 
+	<include refid = "${methodName}.commonSelect"/> 
+	</select>
+
+
+	<!-- UPDATE -->
+	<update id="update${bizName}">
+
+		UPDATE ${tableName}
+		SET
+	  #foreach($i in [0..$colCnt])
+	  #if($i != 0), #end$cols[$i] = ''
+	  #end
+  WHERE 1 = 1
+    #foreach($i in [0..$colCnt])
+    AND $cols[$i] = #$vars[$i]# 
+    #end
+
+	</update>
+
+
+	<!-- DELETE -->
+	<delete id="delete${bizName}">
+
+		DELETE FROM ${tableName}
+		WHERE 1=1
+	#foreach($i in [0..$colCnt])
+	AND $cols[$i] = #$vars[$i]#
+	#end
+
+	</delete>
+   
+</sqlMap>

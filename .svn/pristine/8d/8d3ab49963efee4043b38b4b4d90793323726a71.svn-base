@@ -1,0 +1,34 @@
+package $packageName;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+public class ${bizName}Dto {
+
+	#foreach($i in[0..$colCnt])
+private String $vars[$i];
+	#end
+	
+	#foreach($i in [0..$colCnt])
+public String get$methods[$i]() {
+		return $vars[$i];
+	}	
+	public void set$methods[$i](String $vars[$i]) {
+		this.$vars[$i] = $vars[$i];
+	}	
+	#end
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this,ToStringStyle.SIMPLE_STYLE);
+	}
+
+}
+
+ #*
+ * 1. 패키지명 : template
+ * 2. 타입명 : dao.vm
+ * 3. 작성일 : 2015. 8. 20. 오후 14:15:07
+ * 4. 작성자 : "류혜수"
+ * 5. 설명 : dto 탬플릿
+ *#

@@ -1,0 +1,37 @@
+package $packageName;
+
+import java.util.List;
+
+public class ${bizName}Service {
+
+	${bizName}Dao dao = new ${bizName}Dao();
+	
+	public Object insert(${bizName}Dto dto) throws Exception{
+		return dao.insert(dto);
+	}
+	
+	public List<${bizName}Dto> selectList(${bizName}Dto dto) throws Exception{
+		return dao.selectList(dto);
+	}
+
+	public ${bizName}Dto select(${bizName}Dto dto) throws Exception{
+		return dao.select(dto);
+	}
+	
+	public int update(${bizName}Dto dto) throws Exception{
+		return dao.update(dto);
+	}
+	
+	public int delete(${bizName}Dto dto) throws Exception{
+		return dao.delete(dto);
+	}
+	
+}
+
+ #*
+ * 1. 패키지명 : template
+ * 2. 타입명 : dao.vm
+ * 3. 작성일 : 2015. 8. 20. 오후 14:15:07
+ * 4. 작성자 : "류혜수"
+ * 5. 설명 : service 탬플릿
+ *#

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="477.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="insert.InsertController">
+   <children>
+      <VBox fx:id="vbox" alignment="CENTER" prefHeight="400.0" prefWidth="341.0" />
+      <HBox alignment="CENTER" layoutY="408.0" prefHeight="69.0" prefWidth="341.0" spacing="15.0">
+         <children>
+            <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#insert" text="생성" />
+            <Button fx:id="btnCancle" lineSpacing="15.0" mnemonicParsing="false" onAction="#cancle" text="취소" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

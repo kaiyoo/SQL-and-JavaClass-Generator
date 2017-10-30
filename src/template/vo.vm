@@ -1,0 +1,42 @@
+ #*
+ * 1. 패키지명 : template
+ * 2. 타입명 : dao.vm
+ * 3. 작성일 : 2015. 8. 18. 오후 14:15:07
+ * 4. 작성자 : "한동균"
+ * 5. 설명 :velocity-	Vo 탬플릿
+ *#
+package $packageName;
+	
+	
+	public class ${bizName}Vo {
+	#foreach($var in $vars)
+	private String $var; 
+	#end
+	
+	public ${bizName}Vo(#foreach($var in $vars)String $var,#end) {
+
+	
+	#foreach($var in $vars)
+	this.$var = $var;	
+	#end
+	}
+	#foreach($var in $vars)
+	public String get$var() {
+		return $var;
+	}	
+	#end
+	
+	#foreach($var in $vars)
+	public void set$var(String $var) {
+		this.$var = $var;
+	}	
+	#end
+	
+	
+	@Override
+	public String toString() {
+		return "${bizName}Vo [#foreach($var in $vars)$var=" + $var + ",#end + ]";
+	}					
+	
+}
+

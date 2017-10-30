@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="262.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="file.FileController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="83.0" prefWidth="678.0" spacing="30.0">
+         <children>
+            <Label text="Package Name">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="packageName" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+         <children>
+            <CheckBox fx:id="controller" mnemonicParsing="false" text="Controller" />
+            <CheckBox fx:id="service" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Service" />
+            <CheckBox fx:id="dto" layoutX="89.0" layoutY="10.0" mnemonicParsing="false" text="Dto" />
+            <CheckBox fx:id="dao" layoutX="168.0" layoutY="10.0" mnemonicParsing="false" text="Dao" />
+            <CheckBox layoutX="247.0" layoutY="10.0" mnemonicParsing="false" text="Xml" fx:id="xml" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#fileCreate" prefHeight="29.0" prefWidth="61.0" text="생성" />
+            <Button mnemonicParsing="false" onAction="#cancel" prefHeight="32.0" prefWidth="67.0" text="취소" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
