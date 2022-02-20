@@ -3,8 +3,8 @@
 Window Application that simplifies the select, insert, update, and delete query (using JavaFX, Velocity)
 
 ### [1] Overview
-Users can generate CRUD query easily without writing any SQL.
-You can also map Table to Java source codes (i.e., DAO, DTO)
+- Users can generate CRUD query easily without writing any SQL.
+- You can also map Table to Java source codes (i.e., DAO, DTO)
 
 Through Source Code Generator,
 > 1) users can access the database and load the table and data.
