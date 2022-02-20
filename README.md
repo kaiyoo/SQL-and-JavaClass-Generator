@@ -7,7 +7,7 @@ Window Application that simplifies the select, insert, update, and delete query 
 - You can also map Table to Java source codes (i.e., DAO, DTO)
 
 Through Source Code Generator,
-> 1) users can access the database and load the table and data.
+> 1) Users can access the database and load the table and data.
 > 2) Users can select, insert, update, and delete the data without using query, just by choosing the information they want on the screen.
 > 3) Users can map the table field and data into Java DAO, generate default service, and download the source code file.
 
