@@ -42,7 +42,6 @@ Through Source Code Generator,
 #
 
 You can see more sample images here:
-
 https://hongsangy.wixsite.com/portfolio
 
 
