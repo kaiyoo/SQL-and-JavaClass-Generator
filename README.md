@@ -29,6 +29,7 @@ Through Source Code Generator,
 - First, choose a table in Table section (in the left) and choose one row (in the bottom), and changes some field contents like below,
 ![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/update_screen.png?raw=true)
 
+
 - Then, update query will be generated. 
 ![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/update_query.png?raw=true)
 
@@ -47,8 +48,6 @@ https://hongsangy.wixsite.com/portfolio
 
 ### [3] Exe file
 
-EXE file can be downloaded in the following link: 
-
-https://drive.google.com/open?id=0B5KkAdCYDZb2aVZJWkIxb3V0a2M
+EXE file can be downloaded in: [link](https://drive.google.com/open?id=0B5KkAdCYDZb2aVZJWkIxb3V0a2M)
 
 Note: Importing Soure Codes and running it on the local machine might not work currently becuase the jar dependencies are set locally.
