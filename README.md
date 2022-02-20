@@ -16,29 +16,29 @@ Through Source Code Generator,
 [Insert query generation]
 
 - First, choose a table in Table section (in the left), and fill in some fields (column) like below,
-![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/insert_screen.png?raw=true)
+![alt text](https://github.com/kaiyoo/SQL-and-JavaClass-Generator/blob/master/imgs/insert_screen.png?raw=true)
 
 
 - Then, insert query will be generated. 
-![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/insert_query.png?raw=true)
+![alt text](https://github.com/kaiyoo/SQL-and-JavaClass-Generator/blob/master/imgs/insert_query.png?raw=true)
 
 #
 
 [Update query generation]
 
 - First, choose a table in Table section (in the left) and choose one row (in the bottom), and changes some field contents like below,
-![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/update_screen.png?raw=true)
+![alt text](https://github.com/kaiyoo/SQL-and-JavaClass-Generator/blob/master/imgs/update_screen.png?raw=true)
 
 
 - Then, update query will be generated. 
-![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/update_query.png?raw=true)
+![alt text](https://github.com/kaiyoo/SQL-and-JavaClass-Generator/blob/master/imgs/update_query.png?raw=true)
 
 #
 
 [SQL=>Java code generation]
 
 - Using the table (and all data created from your queries above), you can generate Java source codes (Controller, Service, Dto, Dao, Xml)
-![alt text](https://github.com/kaiyoo/Source-Code-Generator/blob/master/imgs/generate_sourcecodes.png?raw=true)
+![alt text](https://github.com/kaiyoo/SQL-and-JavaClass-Generator/blob/master/imgs/generate_sourcecodes.png?raw=true)
 
 #
 
